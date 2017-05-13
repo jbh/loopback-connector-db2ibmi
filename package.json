@@ -1,0 +1,38 @@
+{
+  "name": "loopback-connector-db2ibmi",
+  "version": "0.0.1",
+  "description": "LoopBack Connector for DB2 on IBM i",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jbh/loopback-connector-db2ibmi.git"
+  },
+  "keywords": [
+    "IBM",
+    "DB2",
+    "IBMi",
+    "iSeries",
+    "LoopBack",
+    "DataSource",
+    "Connector"
+  ],
+  "author": {
+    "name": "Josh Hall",
+    "email": "josh@sobo.red",
+    "url": "http://sobo.red"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jbh/loopback-connector-db2ibmi/issues"
+  },
+  "homepage": "https://github.com/jbh/loopback-connector-db2ibmi#readme",
+  "dependencies": {
+    "async": "^2.4.0",
+    "debug": "^2.6.6",
+    "loopback-connector": "^4.2.0",
+    "strong-globalize": "^2.8.3"
+  }
+}
