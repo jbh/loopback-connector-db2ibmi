@@ -4,7 +4,7 @@ A loopback connector for [IBM i DB2](http://www-03.ibm.com/systems/power/softwar
 
 The LoopBack DB2 for IBM i connector currently supports:
 
-- Patch, Post
+- Supports most CRUD calls. Put and replace requests are buggy.
 - [Queries](http://loopback.io/doc/en/lb2/Querying-data.html) with limit, order, skip and where filters.
 
 And currently lacks:
@@ -13,8 +13,8 @@ And currently lacks:
 - [Queries](http://loopback.io/doc/en/lb2/Querying-data.html) with fields.
 - Change stream
 - Library list and multi-schema support would be nice to have. Right now a datasource has to be setup for each schema.
-- Needs code clean up and tests. This is very much pre-alpha right now.
-- I'm not sure what the HEAD request is for, and it currently does not work.
+- **Needs code clean up and tests. This is very much pre-alpha right now.**
+- HEAD request is currently not working.
 - Entity put & replace requests are broken.
 
 
