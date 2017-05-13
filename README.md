@@ -23,8 +23,10 @@ And currently lacks:
 Enter the following in the top-level directory of your LoopBack application:
 
 ```
-$ npm install git@github.com:jbh/loopback-connector-db2ibmi.git --save
+$ npm install git+ssh://github.com/jbh/loopback-connector-db2ibmi.git --save
 ```
+
+The above is how I got it work on the IBM i.
 
 ## Configuration
 
@@ -48,7 +50,7 @@ Edit `server/datasources.json` to add other supported properties as required:
   "password": <password>,
   "database": <database name>,
   "hostname": <db2 server hostname>,
-  "port":     <port number>
+  "schema": <db2 schema>
 }
 ```
 
@@ -56,7 +58,7 @@ The following table describes the connector properties.
 
 Property&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Type&nbsp;&nbsp;    | Description
 ---------------| --------| --------
-database       | String  | Database name
+database       | String  | Database name (currently not set)
 schema         | String  | Specifies the default schema name that is used to qualify unqualified database objects in dynamically prepared SQL statements. The value of this property sets the value in the CURRENT SCHEMA special register on the database server. The schema name is case-sensitive, and must be specified in uppercase characters
 username       | String  | DB2 Username
 password       | String  | DB2 password associated with the username above
@@ -65,50 +67,9 @@ port           | String  | DB2 server TCP port number
 useLimitOffset | Boolean | LIMIT and OFFSET must be configured on the DB2 server before use (compatibility mode)
 supportDashDB  | Boolean | Create ROW ORGANIZED tables to support dashDB.
 
-
-Alternatively, you can create and configure the data source in JavaScript code.
-For example:
-
-```js
-var DataSource = require('loopback-datasource-juggler').DataSource;
-var DB2 = require('loopback-connector-db2iseries');
-
-var config = {
-  username: process.env.DB2_USERNAME,
-  password: process.env.DB2_PASSWORD,
-  hostname: '*LOCAL',
-  schema: 'MDU21_D',
-};
-
-var db = new DataSource(DB2, config);
-
-var User = db.define('User', {
-  name: { type: String },
-  email: { type: String },
-});
-
-db.autoupdate('User', function(err) {
-  if (err) {
-    console.log(err);
-    return;
-  }
-
-  User.create({
-    name: 'Tony',
-    email: 'tony@t.com',
-  }, function(err, user) {
-    console.log(err, user);
-  });
-
-  User.find({ where: { name: 'Tony' }}, function(err, users) {
-    console.log(err, users);
-  });
-
-  User.destroyAll(function() {
-    console.log('example complete');
-  });
-});
-```
+Some of the above are not currently supported. Database, schema, useLimitOffset,
+and supportDashDB are not taken into consideration as they should be in the
+code. This should be remedied.
 
 ### Goal
 
