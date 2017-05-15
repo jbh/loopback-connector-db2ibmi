@@ -4,7 +4,9 @@
   "description": "LoopBack Connector for DB2 on IBM i",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint .",
+    "test": "mocha --timeout 15000",
+    "posttest": "npm run lint"
   },
   "repository": {
     "type": "git",
@@ -33,6 +35,15 @@
     "async": "^2.4.0",
     "debug": "^2.6.6",
     "loopback-connector": "^4.2.0",
-    "strong-globalize": "^2.8.3"
+    "strong-globalize": "^2.8.3",
+    "util": "^0.10.3"
+  },
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-config-loopback": "^8.0.0",
+    "loopback-datasource-juggler": "^3.6.1",
+    "mocha": "^3.4.1",
+    "should": "^11.2.1",
+    "sinon": "^2.2.0"
   }
 }
