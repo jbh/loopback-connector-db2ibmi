@@ -23,10 +23,8 @@ And currently lacks:
 Enter the following in the top-level directory of your LoopBack application:
 
 ```
-$ npm install git+ssh://github.com/jbh/loopback-connector-db2ibmi.git --save
+$ npm install loopback-connector-db2ibmi --save
 ```
-
-The above is how I got it work on the IBM i.
 
 ## Configuration
 
