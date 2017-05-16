@@ -13,8 +13,10 @@ var config = {
     username: process.env.DB2I_USERNAME,
     password: process.env.DB2I_PASSWORD,
     database: process.env.DB2I_DATABASE || '*LOCAL',
-    schema: process.env.DB2I_SCHEMA || 'MDU21_D'
+    schema: process.env.DB2I_SCHEMA || process.env.DB2I_USERNAME
 };
+
+console.log(config);
 
 global.config = config;
 
