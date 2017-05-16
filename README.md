@@ -49,12 +49,13 @@ Edit `server/datasources.json` to add other supported properties as required:
   "username": <username>,
   "password": <password>,
   "database": <database name>,
-  "hostname": <db2 server hostname>,
   "schema": <db2 schema>
 }
 ```
 
 The following table describes the connector properties.
+
+This connector only works on the IBM i server itself, which is why there is no hostname or port.
 
 Property&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Type&nbsp;&nbsp;    | Description
 ---------------| --------| --------
@@ -62,8 +63,6 @@ database       | String  | Database name (currently not set)
 schema         | String  | Specifies the default schema name that is used to qualify unqualified database objects in dynamically prepared SQL statements. The value of this property sets the value in the CURRENT SCHEMA special register on the database server. The schema name is case-sensitive, and must be specified in uppercase characters
 username       | String  | DB2 Username
 password       | String  | DB2 password associated with the username above
-hostname       | String  | DB2 server hostname or IP address
-port           | String  | DB2 server TCP port number
 useLimitOffset | Boolean | LIMIT and OFFSET must be configured on the DB2 server before use (compatibility mode)
 supportDashDB  | Boolean | Create ROW ORGANIZED tables to support dashDB.
 

@@ -12,9 +12,7 @@ var DataSource = require('loopback-datasource-juggler').DataSource;
 var config = {
     username: process.env.DB2I_USERNAME,
     password: process.env.DB2I_PASSWORD,
-    hostname: process.env.DB2I_HOSTNAME || '*LOCAL',
-    port: process.env.DB2I_PORTNUM || 60000,
-    database: process.env.DB2I_DATABASE || 'testdb',
+    database: process.env.DB2I_DATABASE || '*LOCAL',
     schema: process.env.DB2I_SCHEMA || 'MDU21_D'
 };
 

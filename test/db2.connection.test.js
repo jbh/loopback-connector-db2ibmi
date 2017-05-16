@@ -27,46 +27,4 @@ describe('testConnection', function() {
             done();
         });
     });
-
-    it('should pass when valid DSN overrides empty settings', function(done) {
-        var dsn = generateDSN(config);
-        var dbConfig = {
-            dsn: dsn
-        };
-
-        var db = new DataSource(require('../'), dbConfig);
-        db.ping(function(err) {
-            assert(!err, 'Should connect without err.');
-            done();
-        });
-    });
-
-    it('should pass when valid DSN overrides invalid settings', function(done) {
-        var dsn = generateDSN(config);
-        var dbConfig = {
-            dsn: dsn,
-            host: 'invalid-hostname',
-            port: 80,
-            database: 'invalid-database',
-            username: 'invalid-username',
-            password: 'invalid-password'
-        };
-
-        var db = new DataSource(require('../'), dbConfig);
-        db.ping(function(err) {
-            assert(!err, 'Should connect without err.');
-            done();
-        });
-    });
 });
-
-function generateDSN(config) {
-    return 'DRIVER={DB2}' +
-           ';DATABASE=' + config.database +
-           ';HOSTNAME=' + config.hostname +
-           ';UID=' + config.username +
-           ';PWD=' + config.password +
-           ';PORT=' + config.port +
-           ';PROTOCOL=TCPIP' +
-           ';CurrentSchema=' + config.schema;
-}
