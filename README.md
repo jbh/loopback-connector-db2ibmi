@@ -59,15 +59,14 @@ This connector only works on the IBM i server itself, which is why there is no h
 
 Property&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Type&nbsp;&nbsp;    | Description
 ---------------| --------| --------
-database       | String  | Database name (currently not set)
+database       | String  | Database name
 schema         | String  | Specifies the default schema name that is used to qualify unqualified database objects in dynamically prepared SQL statements. The value of this property sets the value in the CURRENT SCHEMA special register on the database server. The schema name is case-sensitive, and must be specified in uppercase characters
 username       | String  | DB2 Username
 password       | String  | DB2 password associated with the username above
 useLimitOffset | Boolean | LIMIT and OFFSET must be configured on the DB2 server before use (compatibility mode)
 supportDashDB  | Boolean | Create ROW ORGANIZED tables to support dashDB.
 
-Some of the above are not currently supported. Database, schema, useLimitOffset,
-and supportDashDB are not taken into consideration as they should be in the
+useLimitOffset and supportDashDB are not taken into consideration as they should be in the
 code. This should be remedied.
 
 ### Goal
